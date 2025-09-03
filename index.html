@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Sistema de Comandas - Restaurante - Las Delicias</title>
+  <link rel="shortcut icon" href="/Prueba2/img/LOGO DELICIAS2.jpg">
+  <link rel="stylesheet" href="/Prueba2/css/style.css" />
+  <!-- Librerías -->
+  <script src="https://cdn.jsdelivr.net/npm/exceljs/dist/exceljs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <h1>📋 Sistema de Comandas - Restaurante - Las Delicias 📋</h1>
+
+  <div class="controls">
+    <label for="fecha">📅 Fecha de captura:</label>
+    <input type="date" id="fecha">
+
+    <label for="busqueda" style="margin-left:18px;">🔎 Buscar platillo / categoría:</label>
+    <input type="text" id="busqueda" placeholder="Escribe para filtrar...">
+  </div>
+
+  <table id="menuTable">
+    <thead>
+      <tr>
+        <th>Platillo</th>
+        <th>Categoría</th>
+        <th>Vendidos</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody id="menuBody"><!-- La tabla se genera automáticamente desde script.js --></tbody>
+  </table>
+
+  <div class="actions">
+    <button class="btn-excel" onclick="mostrarResultados()">📊 Mostrar Resultados</button>
+    <button class="btn-excel" onclick="generarExcel()">📥 Descargar Excel</button>
+    <button class="btn-reset" onclick="reiniciar()">♻️ Reiniciar</button>
+    <input type="file" id="archivosExcel" accept=".xlsx" multiple style="margin-top:10px;">
+<button class="btn-excel" onclick="unirExcels()">📥 Unir Excels y mostrar totales</button>
+
+  </div>
+
+  <div id="resultados"></div>
+
+  <h2>📊 Gráficas</h2>
+  <canvas id="graficaProductos" width="800" height="360"></canvas>
+  <canvas id="graficaCategorias" width="800" height="360"></canvas>
+
+  <div id="graficasIndividuales"><!-- Aquí se crean dinámicamente las gráficas por categoría --></div>
+
+  <script src="/Prueba2/js/script.js"></script>
+</body>
+
+</html>
